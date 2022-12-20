@@ -16,7 +16,7 @@ inici:-
     ! % Acabem el backtrack
     ).
 
-/* Hypotesis a comprovar*/
+/* Hypotesis a comprovar */
 
 hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu, !.
 hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau.
