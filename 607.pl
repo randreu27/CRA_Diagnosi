@@ -12,7 +12,8 @@ inici:-
     (Resp == si ->
     writeln('Nova sessió.'),
      fail % backtrack al repeat
-    ;   writeack
+    ;   writeln('Acabem, doncs.'),
+    ! % Acabem el backtrack
     ).
 
 /* Hypotesis a comprovar*/
