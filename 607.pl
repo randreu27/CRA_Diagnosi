@@ -3,11 +3,11 @@ inici:-
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
     repeat,
     hypotesis(Malaltia),
-    write('Crec que tens'),
+    write('Crec que tens: '),
     write(Malaltia),
     nl,
     desfer,
-    writeln('Vols tornar a fer el diagnostic: ? (si/no'),
+    writeln('Vols tornar a fer el diagnostic: ? (si/no)'),
     read(Resp), nl,
     (Resp == si ->
     writeln('Nova sessió.'),
@@ -17,8 +17,8 @@ inici:-
 
 /* Hypotesis a comprovar*/
 
-hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau.
 hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu, !.
+hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau.
 hypotesis(no_mal_de_muntanya).
 
 /* Verificació */
