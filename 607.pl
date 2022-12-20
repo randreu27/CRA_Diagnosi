@@ -3,6 +3,7 @@ inici:-
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
     repeat,
     hypotesis(Malaltia),
+    write('Crec que tens'),
     write(Malaltia),
     nl,
     desfer,
@@ -16,7 +17,7 @@ inici:-
 
 /* Hypotesis a comprovar*/
 
-hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau, !.
+hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau.
 hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu, !.
 hypotesis(no_mal_de_muntanya).
 
