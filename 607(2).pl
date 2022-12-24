@@ -18,8 +18,8 @@ inici:-
 
 /* Hypotesis a comprovar */
 
-hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu.
-hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau.
+hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu,!.
+hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau,!.
 hypotesis(no_mal_de_muntanya).
 
 /* Verificació */
@@ -62,8 +62,8 @@ mal_de_muntanya_agut_suau:-
     verifica(irritabilitat),
     verifica(pèrdua_de_gana).
 
-gran_altura:- verifica(estàs_a_gran_altura).
-nàusees_i_vomits:- verifica(nàusees_i_vomits).
+gran_altura:- verifica(estàs_a_gran_altura),!.
+nàusees_i_vomits:- verifica(nàusees_i_vomits),!.
 
 /* Mal de Muntanya Agut Greu */
 
