@@ -32,6 +32,9 @@ perque:-
     nl,
     write(llista(_)).
 
+/* Llista de simptomes */
+
+llista(X).
 
 /* Hypotesis a comprovar */
 
@@ -114,7 +117,7 @@ pregunta(Pregunta):-
     nl,
     (   (Resposta == si ; Resposta == s)
     ->
-    assert(si(Pregunta), llista(Pregunta));
+    assert(si(Pregunta)), assertz(llista(Pregunta));
     assert(no(Pregunta)), fail).
 :- dynamic si/1,no/1.
 
