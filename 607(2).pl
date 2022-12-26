@@ -1,4 +1,3 @@
-:-use_module(library(listing)).
 inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
@@ -7,9 +6,16 @@ inici:-
     write('Crec que tens: '),
     write(Malaltia),
     nl,
-    tell('sortida.txt'),listing,told,
+    writeln('Vols saber perquè he arribat a aquesta conclusió? (si/no)'),
+    read(Resp), nl,
+    (Resp == si ->
+    perque
+    ;
+    !
+    ),
+    nl,
     desfer,
-    writeln('Vols tornar a fer el diagnostic: ? (si/no)'),
+    writeln('Vols tornar a fer el diagnostic? (si/no)'),
     read(Resp), nl,
     (Resp == si ->
     writeln('Nova sessió.'),
@@ -18,6 +24,13 @@ inici:-
     ! % Acabem el backtrack
     ).
 
+perque:-
+    hypotesis(Malaltia),
+    write('Crec que tens: '),
+    write(Malaltia),
+    write(' perquè té aquestes característiques:'),
+    nl,
+    write(si(_)).
 
 
 /* Hypotesis a comprovar */
@@ -105,8 +118,14 @@ pregunta(Pregunta):-
     assert(no(Pregunta)), fail).
 :- dynamic si/1,no/1.
 
-/* Desfer totes les assercions si/no per iniciar una nova sessiÃ³ */
+/* Desfer totes les assercions si/no per iniciar una nova sessió */
 
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
 desfer.
+
+
+
+
+
+
