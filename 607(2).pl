@@ -30,7 +30,7 @@ perque:-
     write(Malaltia),
     write(' perquè té aquestes característiques:'),
     nl,
-    write(si(S)).
+    write(llista(_)).
 
 
 /* Hypotesis a comprovar */
@@ -114,7 +114,7 @@ pregunta(Pregunta):-
     nl,
     (   (Resposta == si ; Resposta == s)
     ->
-    assert(si(Pregunta));
+    assert(si(Pregunta), llista(Pregunta));
     assert(no(Pregunta)), fail).
 :- dynamic si/1,no/1.
 
