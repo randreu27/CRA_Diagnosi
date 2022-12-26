@@ -7,8 +7,8 @@ inici:-
     write(Malaltia),
     nl,
     writeln('Vols saber perquè he arribat a aquesta conclusió? (si/no)'),
-    read(Resp), nl,
-    (Resp == si ->
+    read(Resposta1), nl,
+    (Resposta1 == si ->
     perque
     ;
     !
@@ -30,7 +30,7 @@ perque:-
     write(Malaltia),
     write(' perquè té aquestes característiques:'),
     nl,
-    write(si(_)).
+    write(si(S)).
 
 
 /* Hypotesis a comprovar */
