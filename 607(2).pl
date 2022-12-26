@@ -1,3 +1,4 @@
+:-use_module(library(listing)).
 inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
@@ -6,6 +7,7 @@ inici:-
     write('Crec que tens: '),
     write(Malaltia),
     nl,
+    tell('sortida.txt'),listing,told,
     desfer,
     writeln('Vols tornar a fer el diagnostic: ? (si/no)'),
     read(Resp), nl,
@@ -15,6 +17,8 @@ inici:-
     ;   writeln('Acabem, doncs.'),
     ! % Acabem el backtrack
     ).
+
+
 
 /* Hypotesis a comprovar */
 
