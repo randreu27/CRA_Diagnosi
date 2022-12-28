@@ -2,7 +2,6 @@ inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
     repeat,
-    A = [X|_],
     hypotesis(Malaltia),
     write('Crec que tens: '),
     write(Malaltia),
@@ -32,11 +31,6 @@ perque:-
     write(' perquè té aquestes característiques:'),
     nl,
     writeln(A).
-
-append_to_list(List,Item):-
-    List = [Start|[To_add|Rest]],
-    nonvar(Start),
-    (var(To_add), To_add = Item; append_to_list([To_add|Rest], Item)).
 
 /* Hypotesis a comprovar */
 
@@ -119,7 +113,7 @@ pregunta(Pregunta):-
     nl,
     (   (Resposta == si ; Resposta == s)
     ->
-    assert(si(Pregunta)), append_to_list(A,Pregunta);
+    assert(si(Pregunta));
     assert(no(Pregunta)), fail).
 :- dynamic si/1,no/1.
 
