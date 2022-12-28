@@ -1,3 +1,10 @@
+:- dynamic lista/1.
+lista([]).
+
+inserta([], X, [X]).
+inserta([H|T], N, [H|R]):- inserta(T, N, R).
+nouSimptoma(Y):- lista(X), inserta(X, Y, Nova), asserta(lista(Nova)).
+
 inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
@@ -26,11 +33,11 @@ inici:-
 
 perque:-
     hypotesis(Malaltia),
-    write('Crec que tens: '),
+    write('Crec que tens '),
     write(Malaltia),
     write(' perquè té aquestes característiques:'),
     nl,
-    writeln(A).
+    write(lista(X)).
 
 /* Hypotesis a comprovar */
 
@@ -113,7 +120,7 @@ pregunta(Pregunta):-
     nl,
     (   (Resposta == si ; Resposta == s)
     ->
-    assert(si(Pregunta));
+    assert(si(Pregunta)),nouSimptoma(Pregunta);
     assert(no(Pregunta)), fail).
 :- dynamic si/1,no/1.
 
