@@ -1,9 +1,13 @@
+/* Preparació per crear la llista amb els símptomes */
+
 :- dynamic lista/1.
 lista([]).
 
 inserta([], X, [X]).
 inserta([H|T], N, [H|R]):- inserta(T, N, R).
 nouSimptoma(Y):- lista(X), inserta(X, Y, Nova), asserta(lista(Nova)).
+
+/* Main */
 
 inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
