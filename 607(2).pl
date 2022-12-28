@@ -7,6 +7,7 @@ inserta([], X, [X]).
 inserta([H|T], N, [H|R]):- inserta(T, N, R).
 nouSimptoma(Y):- lista(X), inserta(X, Y, Nova), asserta(lista(Nova)).
 
+
 /* Main */
 
 inici:-
@@ -34,14 +35,17 @@ inici:-
     ;   writeln('Acabem, doncs.'),
     ! % Acabem el backtrack
     ).
-
+/* Codi per escriure la llista amb els símptomes */
 perque:-
     hypotesis(Malaltia),
     write('Crec que tens '),
     write(Malaltia),
     write(' perquè té aquestes característiques:'),
     nl,
-    write(lista(X)).
+    lista(X),
+    writeln(X),
+    desfer.
+
 
 /* Hypotesis a comprovar */
 
@@ -132,6 +136,7 @@ pregunta(Pregunta):-
 
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
+desfer :- retract(lista(_)),fail.
 desfer.
 
 
