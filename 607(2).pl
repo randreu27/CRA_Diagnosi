@@ -38,11 +38,7 @@ perque:-
     write(Malaltia),
     write(' perquè té aquestes característiques:'),
     nl,
-    writeln(llista([_])).
-
-/* Llista de simptomes */
-
-/*llista([_]).*/
+    writeln(A).
 
 /* Hypotesis a comprovar */
 
