@@ -1,10 +1,3 @@
-:-initialization(main).
-
-append_to_list(List,Item):-
-    List = [Start|[To_add|Rest]],
-    nonvar(Start),
-    (var(To_add), To_add = Item; append_to_list([To_add|Rest], Item)).
-
 inici:-
     write('Programa de diagnosi del Mal de Muntanya Agut.'), nl,
     write('Et demanarem que responguis si o no a alguns simptomes.'), nl,
@@ -39,6 +32,11 @@ perque:-
     write(' perquè té aquestes característiques:'),
     nl,
     writeln(A).
+
+append_to_list(List,Item):-
+    List = [Start|[To_add|Rest]],
+    nonvar(Start),
+    (var(To_add), To_add = Item; append_to_list([To_add|Rest], Item)).
 
 /* Hypotesis a comprovar */
 
