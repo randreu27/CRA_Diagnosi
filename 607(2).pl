@@ -45,8 +45,7 @@ perque:-
     write(' perquè té aquestes característiques:'),
     nl,
     lista(X),
-    writeln(X),
-    desfer.
+    writeln(X).
 
 
 /* Hypotesis a comprovar */
@@ -151,7 +150,7 @@ pregunta(Pregunta):-
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
 desfer :- retractall(lista(_)), fail.
-desfer :- asserta(lista([])).
+desfer :- asserta(lista([])), fail.
 
 desfer.
 
