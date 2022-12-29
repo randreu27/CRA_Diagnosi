@@ -43,7 +43,8 @@ perque:-
     write(' perquè té aquestes característiques:'),
     nl,
     lista(X),
-    writeln(X).
+    writeln(X),
+    retractall(lista(X)).
 
 
 /* Hypotesis a comprovar */
@@ -91,6 +92,8 @@ mal_de_muntanya_agut_suau:-
     insomni,
     irritabilitat,
     perdua_de_gana.
+
+/* LLista de símptomes per verificar */
 
 mareig:- verifica(mareig),!.
 mal_de_cap:- verifica(mal_de_cap),!.
