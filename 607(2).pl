@@ -44,7 +44,7 @@ perque:-
     nl,
     lista(X),
     writeln(X),
-    retractall(lista(X)).
+    retractall(lista(X)), fail; !.
 
 
 /* Hypotesis a comprovar */
