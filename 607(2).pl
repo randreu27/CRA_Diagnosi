@@ -43,8 +43,7 @@ perque:-
     write(' perquè té aquestes característiques:'),
     nl,
     lista(X),
-    writeln(X),
-    desfer.
+    writeln(X).
 
 
 /* Hypotesis a comprovar */
@@ -73,26 +72,36 @@ mal_de_muntanya_agut_suau:- gran_altura,
 
 mal_de_muntanya_agut_suau:-
     gran_altura,
-    verifica(mareig),
-    verifica(mal_de_cap).
+    mareig,
+    mal_de_cap.
 
 mal_de_muntanya_agut_suau:-
     gran_altura,
-    verifica(dificultat_per_el_esforç_fisic),
-    verifica(inflamació_de_mans_peus_i_cara),
-    verifica(dolors_musculars).
+    dificultat_per_el_esforç_fisic,
+    inflamacio_de_mans_peus_i_cara,
+    dolors_musculars.
 
 mal_de_muntanya_agut_suau:-
     gran_altura,
-    verifica(batec_cardiac_ràpid),
-    verifica(dificultat_per_respirar).
+    batec_cardiac_rapid,
+    dificultat_per_respirar.
 
 mal_de_muntanya_agut_suau:-
     gran_altura,
-    verifica(insomni),
-    verifica(irritabilitat),
-    verifica(pèrdua_de_gana).
+    insomni,
+    irritabilitat,
+    perdua_de_gana.
 
+mareig:- verifica(mareig),!.
+mal_de_cap:- verifica(mal_de_cap),!.
+dificultat_per_el_esforç_fisic:- verifica(dificultat_per_el_esforç_fisic),!.
+inflamacio_de_mans_peus_i_cara:- verifica(inflamacio_de_mans_peus_i_cara),!.
+dolors_musculars:- verifica(dolors_musculars),!.
+batec_cardiac_rapid:- verifica(batec_cardiac_rapid),!.
+dificultat_per_respirar:- verifica(dificultat_per_respirar),!.
+insomni:- verifica(insomni),!.
+irritabilitat:- verifica(irritabilitat),!.
+perdua_de_gana:- verifica(perdua_de_gana),!.
 gran_altura:- verifica(estàs_a_gran_altura),!.
 nàusees_i_vomits:- verifica(nàusees_i_vomits),!.
 
@@ -136,7 +145,6 @@ pregunta(Pregunta):-
 
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
-desfer :- retract(lista(_)),fail.
 desfer.
 
 
