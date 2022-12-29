@@ -35,7 +35,9 @@ inici:-
     ;   writeln('Acabem, doncs.'),
     ! % Acabem el backtrack
     ).
+
 /* Codi per escriure la llista amb els símptomes */
+
 perque:-
     hypotesis(Malaltia),
     write('Crec que tens '),
@@ -44,7 +46,7 @@ perque:-
     nl,
     lista(X),
     writeln(X),
-    retractall(lista(X)), fail; !.
+    desfer.
 
 
 /* Hypotesis a comprovar */
@@ -148,6 +150,8 @@ pregunta(Pregunta):-
 
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
+desfer :- retractall(lista(_)), fail; !.
+
 desfer.
 
 
