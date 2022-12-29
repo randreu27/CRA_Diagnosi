@@ -150,7 +150,8 @@ pregunta(Pregunta):-
 
 desfer :- retract(si(_)), fail.
 desfer :- retract(no(_)), fail.
-desfer :- retractall(lista(_)), fail; !.
+desfer :- retractall(lista(_)), fail.
+desfer :- asserta(lista([])).
 
 desfer.
 
