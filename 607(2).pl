@@ -19,22 +19,27 @@ inici:-
     write(Malaltia),
     nl,
     writeln('Vols saber perquè he arribat a aquesta conclusió? (si/no)'),
+    writeln('ATENCIÓ : Si respons amb un <si.>, la sessió finalitzarà.'),
     read(Resposta1), nl,
     (Resposta1 == si ->
-    perque
+    perque,
+    desfer,
+    nl,
+    writeln('Acabem, doncs.'),
+    write('Si vols fer un altre sessió escriu <inici.> al terminal')
     ;
-    !
-    ),
     nl,
     desfer,
     writeln('Vols tornar a fer el diagnostic? (si/no)'),
-    read(Resp), nl,
+    read(Resp),
+    nl,
     (Resp == si ->
     writeln('Nova sessió.'),
-     fail % backtrack al repeat
-    ;   writeln('Acabem, doncs.'),
+    fail % backtrack al repeat
+    ;
+    writeln('Acabem, doncs.'),
     ! % Acabem el backtrack
-    ).
+    )).
 
 /* Codi per escriure la llista amb els símptomes */
 
