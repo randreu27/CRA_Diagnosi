@@ -22,6 +22,15 @@ inici:-
     write('Crec que tens: '),
     write(Malaltia),
     nl,
+    writeln('Vols generar un arxiu <resultats.pl> que contingui tots el fets observats? (si/no)'),
+    read(Resposta2), nl,
+    (Resposta2 == si ->
+    lista(X),
+    write_list_to_file('resultats.pl',lista(X)),
+     nl
+     ;
+    !
+    ),
     writeln('Vols saber perquè he arribat a aquesta conclusió? (si/no)'),
     writeln('ATENCIÓ : Si respons amb un <si.>, la sessió finalitzarà.'),
     read(Resposta1), nl,
@@ -55,6 +64,20 @@ perque:-
     nl,
     lista(X),
     writeln(X).
+
+/* Preparació per el diagnosi en 'batch' */
+
+
+loop_through_list(File, List):-
+    member(Element, List),
+    write(File, Element),
+    write(File, ' '),
+    fail.
+
+write_list_to_file(Filename,List):-
+    open(Filename, write, File),
+    \+ loop_through_list(File,List),
+    close(File).
 
 
 /* Hypotesis a comprovar */
