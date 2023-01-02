@@ -26,7 +26,7 @@ inici:-
     read(Resposta2), nl,
     (Resposta2 == si ->
     lista(X),
-    write_list_to_file('resultats.pl',lista(X)),
+    write_list_to_file('resultats.pl', lista(X)),
      nl
      ;
     !
