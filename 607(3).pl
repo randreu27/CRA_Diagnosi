@@ -1,3 +1,7 @@
+/* Introducció dels casos */
+
+:-consult(casos).
+
 /* Preparació per crear la llista amb els símptomes */
 
 :- dynamic lista/1.
@@ -55,9 +59,17 @@ perque:-
 
 /* Hypotesis a comprovar */
 
-hypotesis(mal_de_muntanya_agut_greu):- mal_de_muntanya_agut_greu,!.
-hypotesis(mal_de_muntanya_agut_suau):- mal_de_muntanya_agut_suau,!.
-hypotesis(no_mal_de_muntanya).
+hypotesis(cas_6):- cas_6,!.
+hypotesis(cas_7):- cas_7,!.
+hypotesis(cas_8):- cas_8,!.
+hypotesis(cas_9):- cas_9,!.
+hypotesis(cas_10):- cas_10,!.
+hypotesis(cas_1):- cas_1,!.
+hypotesis(cas_2):- cas_2,!.
+hypotesis(cas_3):- cas_3,!.
+hypotesis(cas_4):- cas_4,!.
+hypotesis(cas_5):- cas_5,!.
+hypotesis(error_de_identificacio).
 
 /* Verificació */
 
@@ -69,72 +81,6 @@ verifica(S):-
  ->
  fail ;
  pregunta(S))).
-
-/* Regles d'identificació */
-
-/* Mal de Muntanya Agut Suau */
-
-mal_de_muntanya_agut_suau:- gran_altura,
-    nàusees_i_vomits.
-
-mal_de_muntanya_agut_suau:-
-    gran_altura,
-    mareig,
-    mal_de_cap.
-
-mal_de_muntanya_agut_suau:-
-    gran_altura,
-    dificultat_per_el_esforç_fisic,
-    inflamacio_de_mans_peus_i_cara,
-    dolors_musculars.
-
-mal_de_muntanya_agut_suau:-
-    gran_altura,
-    batec_cardiac_rapid,
-    dificultat_per_respirar.
-
-mal_de_muntanya_agut_suau:-
-    gran_altura,
-    insomni,
-    irritabilitat,
-    perdua_de_gana.
-
-/* LLista de símptomes per verificar */
-
-mareig:- verifica(mareig),!.
-mal_de_cap:- verifica(mal_de_cap),!.
-dificultat_per_el_esforç_fisic:- verifica(dificultat_per_el_esforç_fisic),!.
-inflamacio_de_mans_peus_i_cara:- verifica(inflamacio_de_mans_peus_i_cara),!.
-dolors_musculars:- verifica(dolors_musculars),!.
-batec_cardiac_rapid:- verifica(batec_cardiac_rapid),!.
-dificultat_per_respirar:- verifica(dificultat_per_respirar),!.
-insomni:- verifica(insomni),!.
-irritabilitat:- verifica(irritabilitat),!.
-perdua_de_gana:- verifica(perdua_de_gana),!.
-gran_altura:- verifica(estàs_a_gran_altura),!.
-nàusees_i_vomits:- verifica(nàusees_i_vomits),!.
-
-/* Mal de Muntanya Agut Greu */
-
-mal_de_muntanya_agut_greu:-
-    mal_de_muntanya_agut_suau,
-    verifica(tossir).
-
-mal_de_muntanya_agut_greu:-
-    mal_de_muntanya_agut_suau,
-    verifica(congestió).
-
-mal_de_muntanya_agut_greu:-
-    mal_de_muntanya_agut_suau,
-    verifica(pell_pàlida).
-
-mal_de_muntanya_agut_greu:-
-    mal_de_muntanya_agut_suau,
-    verifica(manca_de_equilibri).
-
-mal_de_muntanya_agut_greu:-
-    mal_de_muntanya_agut_suau,
-    verifica(autoreclusió_social).
 
 /* Part per preguntar a l'usuari */
 
