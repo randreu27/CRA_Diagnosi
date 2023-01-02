@@ -26,7 +26,7 @@ inici:-
     read(Resposta2), nl,
     (Resposta2 == si ->
     lista(X),
-    write_list_to_file('resultats.pl', lista(X)),
+    write_list_to_file('resultats.pl', X),
      nl
      ;
     !
@@ -69,12 +69,15 @@ perque:-
 
 loop_through_list(File, List):-
     member(Element, List),
-    write(File, Element),
-    write(File, ' '),
+    writeln(File, Element),
+    writeln(File, ' '),
     fail.
 
 write_list_to_file(Filename,List):-
+    hypotesis(Malaltia),
     open(Filename, write, File),
+    write(File, Malaltia),
+    writeln(File, ':'),
     \+ loop_through_list(File, List),
     close(File).
 
