@@ -67,7 +67,6 @@ perque:-
 
 /* Preparació per el diagnosi en 'batch' */
 
-
 loop_through_list(File, List):-
     member(Element, List),
     write(File, Element),
@@ -76,7 +75,7 @@ loop_through_list(File, List):-
 
 write_list_to_file(Filename,List):-
     open(Filename, write, File),
-    \+ loop_through_list(File,List),
+    \+ loop_through_list(File, List),
     close(File).
 
 
