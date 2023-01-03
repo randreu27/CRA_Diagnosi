@@ -78,7 +78,17 @@ write_list_to_file(Filename,List):-
     open(Filename, write, File),
     write(File, Malaltia),
     writeln(File, ':'),
+    writeln(File, 'Evidències:'),
     \+ loop_through_list(File, List),
+    (Malaltia == cas_1; Malaltia == cas_2; Malaltia == cas_3; Malaltia == cas_4; Malaltia == cas_5 ->
+    writeln(File, 'Identificació de la malaltia: Mal de Muntanya Suau')
+    ;
+    Malaltia == cas_6; Malaltia == cas_7; Malaltia == cas_8; Malaltia == cas_9; Malaltia == cas_10 ->
+    writeln(File, 'Identificació de la malaltia: Mal de Muntanya Greu')
+    ;
+    writeln(File,'Identificació de la malaltia: Desconegut')
+    )
+    ,
     close(File).
 
 
