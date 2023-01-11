@@ -22,26 +22,19 @@ inici:-
     write('Crec que tens: '),
     write(Malaltia),
     nl,
-    writeln('Vols generar un arxiu <resultats.pl> que contingui tots el fets observats? (si/no)'),
-    read(Resposta2), nl,
-    (Resposta2 == si ->
-    lista(X),
-    write_list_to_file('resultats.pl', X),
-     nl
-     ;
-    !
-    ),
     writeln('Vols saber perquè he arribat a aquesta conclusió? (si/no)'),
     writeln('ATENCIÓ : Si respons amb un <si.>, la sessió finalitzarà.'),
     read(Resposta1), nl,
     (Resposta1 == si ->
     perque,
+    batch,
     desfer,
     nl,
     writeln('Acabem, doncs.'),
     write('Si vols fer un altre sessió escriu <inici.> al terminal')
     ;
     nl,
+    batch,
     desfer,
     writeln('Vols tornar a fer el diagnostic? (si/no)'),
     read(Resp),
@@ -53,6 +46,16 @@ inici:-
     writeln('Acabem, doncs.'),
     ! % Acabem el backtrack
     )).
+
+
+/* Pregunta el nom del arxiu on es vol guardar els casos observats */
+
+batch:-
+    lista(X),
+    writeln('Com vols anomenar al arxiu que contindrà el casos observats? (IMPORTANT: l´arxiu ha de ser del tipus "NOMDESITJAT.pl")'),
+    read(Res),
+    write_list_to_file(Res, X).
+
 
 /* Codi per escriure la llista amb els símptomes */
 
